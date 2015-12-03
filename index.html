@@ -1,0 +1,63 @@
+<html ng-app="epic">
+  <head>
+    <title>UI Mockup for EPIC patient schedule</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
+    <script type="text/javascript" src="epic.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.min.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <!-- Home head is the bar which contains the menu button and
+    IB, dasboard icons. Floats to the left in the navbar.
+      -->
+      <ul class = "homehead">
+        <li class = "dropdown menuhead">
+          <p class="dropdown-toggle" data-toggle="dropdown">Home
+          <span class="caret"></span></p>
+          <ul class="dropdown-menu">
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+            <li><a href="#">EPIC OPTION HERE</a></li>
+          </ul>
+        </li>
+        <li class="menuhead">
+          <i class="fa fa-inbox "></i>
+          <i class="fa fa-clipboard "></i>
+          <i class="fa fa-users"></i>
+        </li>
+      </ul>
+      <ul class="homeright">
+        <li class="menuheadright" ng-controller="searchCtrl">
+          <i class="fa fa-search"></i>
+          <input type="textbox" ng-model="query"/>
+          <ul class="searchresbox">
+            <li class = "smallresbox" ng-repeat = "ii in items | searchFor:query">
+              <img src="{{ii.image}}"/>
+              <p>{{ii.title}}</p>
+              <span ng-if= "ii.role == 'patient'">
+                <i class="fa fa-male"></i> <p class="patientheader">Patient</p>
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div ng-view></div>
+  </body>
+</html>

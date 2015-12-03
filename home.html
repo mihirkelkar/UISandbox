@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="waiting" ng-style="{'border-left-color': color}">
+      <img src="{{image}}">
+      <div class="repbox">
+        <h5>{{title}}</h5>
+        <p>{{name}}</p>
+        <span><i class="fa fa-heartbeat fa-2x"></i></span>
+        <span style = "font-size:20;"> {{pulse}} </span>
+        <span style = "font-size:15; color: grey"> {{bloodp}} </span>
+        <p><i class="fa fa-exclamation-circle"></i>{{rov}}</p>
+      </div>
+    </div>
+    <div class="sched" ng-mouseleave="hoverOut()">
+      <ul>
+        <li ng-repeat="patient in patients">
+          <img ng-mouseover="hoverIn($index)" id="{{patient.id}}" src="{{patient.image}}"/>
+        </li>
+      </ul>
+      <i class="fa fa-external-link fa-2x" data-toggle="modal" data-target=".bs-example-modal-lg"></i>
+    </div>
+    <div class="messages">
+      <h4> MEDICATION REFILLS </h4>
+      <ul>
+        <li>
+          <!--div class="medimage">
+            <img src="http://www.famousbirthdays.com/headshots/jim-oheir-3.jpg"/>
+            <h5>Gergich, Jerry</h5>
+            <h6><i class="fa fa-stethoscope"></i> Last Appt : 3 Weeks Ago</h6>
+          </div-->
+        </li>
+        <li>
+          <div class="medimage">
+            <img src="http://www.famousbirthdays.com/headshots/jim-oheir-3.jpg"/>
+            <h5>Gergich, Jerry</h5>
+            <h6><i class="fa fa-stethoscope"></i> Last Appt : 11 Months Ago</h6>
+          </div>
+          <h4 class="medname"> Meltaformindsnjf </h4>
+          <h5 class="medetail">25 mg daily</h5>
+          <h5 class="viewdets"> View Details</h5>
+          <button type="button" class="btn btn-success approve">Approve</button>
+          <button type="button" class="btn btn-danger reject">Reject</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-4">
+
+  </div>
+  <div class="col-md-4">
+    <div class="insights">
+      <div class="patientreps">
+        <div class="numbox">
+        </div>
+        <div class="numbox">
+        </div>
+        <div class="numbox">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content patlist">
+      <h4> PATIENT LIST </h4>
+      <br></br>
+      <div style="overflow-y: scroll; height:35em;">
+        <div class="row element" ng-repeat="patient in patients">
+          <div class="col-xs-6 col-sm-4">
+            <img id="{{patient.id}}"src="{{patient.image}}"/>
+            <h5 style="color: grey">{{patient.name}}</h5>
+          </div>
+          <div class="col-xs-6 col-sm-4" style= "color: grey;">
+            <p> <b style="color:black;">{{patient.visit}}</b> at {{patient.time}} </p>
+            <p> {{patient.age}} year old, {{patient.gender}}</p>
+            <p> <b style="color:black;">{{patient.provider}}</b> is the {{patient.ptype}} provider </p>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <p><i class="fa fa-phone"></i> {{patient.phone}}</p>
+            <p><i class="fa fa-home"></i> {{patient.address}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
