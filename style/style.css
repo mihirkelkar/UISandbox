@@ -94,6 +94,7 @@ body{
   height: 6em;
   vertical-align: center;
   background-color: #efefef;
+  z-index: 1;
 }
 
 .smallresbox > p{
@@ -356,8 +357,9 @@ body{
 }
 
 .insights{
+    z-index: -1;
     width: 26em;
-    height: 32.5em;
+    height: 37em;
     margin: 3.5em auto;
     margin-bottom: 0em;
     background-color: white;
@@ -366,22 +368,103 @@ body{
     border-radius: 5px;
     border-left-width: thick;
     border-left-color: #efefef;
+    font-family: 'Varela Round', sans-serif;
+    text-align:center;
+    color: grey;
 }
 
 .patientreps{
   position: relative;
   width: 25em;
-  height: 10em;
+  height: 12em;
   margin: 0.5em auto;
   border-radius: 5px;
-  border: 1px solid orange;
+  border: 1px solid #efefef;
 }
 
 .numbox{
+
   float: left;
   width: 7.45em;
-  height: 9em;
+  height: 11em;
   margin: 0.5em 0.4em;
-  border: 1px solid orange;
+  /*border: 1px solid orange;*/
   border-radius: 5px;
+  font-family: 'Varela Round', sans-serif;
+  text-align: center;
+}
+
+.numbox  h1{
+  font-size: 5em;
+  margin-top: 0.25em;
+  opacity: 0.65;
+  letter-spacing: -0.15em;
+}
+
+.boxsmall{
+  position: absolute;
+  height: 3em;
+  width: 7.30em;
+  margin: 0 auto;
+  /*border: 1px solid orange;*/
+  bottom: 0em;
+  text-align: center;
+}
+
+.boxsmallredtext > h5{
+  margin: 0.25em auto;
+  opacity: 0.75;
+  color: red;
+  font-weight: bold;
+}
+
+.boxsmallyellowtext > h5{
+  margin: 0.5em auto;
+  opacity: 0.75;
+  color: black;
+  font-weight: bold;
+}
+
+.boxsmallgreentext > h5{
+  margin: 0.5em auto;
+  opacity: 0.75;
+  color: green;
+  font-weight: bold;
+}
+
+.chartrepone{
+  position: relative;
+  width: 25em;
+  height: 10em;
+  margin: 0.75em auto;
+  border-radius: 5px;
+  border: 1px solid #efefef;
+}
+
+.chartreptwo{
+  position: relative;
+  width: 25em;
+  height: 6em;
+  margin: 0.25em auto;
+  border-radius: 5px;
+  border: 1px solid #efefef;
+}
+
+.insimg{
+  background-image: url('../insight1.png');
+  background-size: cover;
+  position:absolute;
+  bottom:0;
+  width: 25em;
+  height: 4em;
+}
+
+.insimgtwo{
+  background-image: url('../insight2.png');
+  background-size: cover;
+  position:absolute;
+  bottom:0;
+  /*border: 1px solid black;*/
+  width: 25em;
+  height: 4em;
 }

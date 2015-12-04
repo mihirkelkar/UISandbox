@@ -23,23 +23,19 @@
       <h4> MEDICATION REFILLS </h4>
       <ul>
         <li>
-          <!--div class="medimage">
-            <img src="http://www.famousbirthdays.com/headshots/jim-oheir-3.jpg"/>
-            <h5>Gergich, Jerry</h5>
-            <h6><i class="fa fa-stethoscope"></i> Last Appt : 3 Weeks Ago</h6>
-          </div-->
+          <h4 style="color:black; opacity:0.6; text-decoration:underline;">No Refill Requests</h4>
         </li>
-        <li>
+        <li ng-repeat="refill in refills">
           <div class="medimage">
-            <img src="http://www.famousbirthdays.com/headshots/jim-oheir-3.jpg"/>
-            <h5>Gergich, Jerry</h5>
-            <h6><i class="fa fa-stethoscope"></i> Last Appt : 11 Months Ago</h6>
+            <img src="{{refill.image}}"/>
+            <h5>{{refill.name}}</h5>
+            <h6><i class="fa fa-stethoscope"></i> Last Appt : {{refill.last}}</h6>
           </div>
-          <h4 class="medname"> Meltaformindsnjf </h4>
-          <h5 class="medetail">25 mg daily</h5>
+          <h4 class="medname"> {{refill.med}} </h4>
+          <h5 class="medetail">{{refill.freq}}</h5>
           <h5 class="viewdets"> View Details</h5>
           <button type="button" class="btn btn-success approve">Approve</button>
-          <button type="button" class="btn btn-danger reject">Reject</button>
+          <button type="button" class="btn btn-danger reject" ng-click="reject()">Reject</button>
         </li>
       </ul>
     </div>
@@ -50,12 +46,29 @@
   <div class="col-md-4">
     <div class="insights">
       <div class="patientreps">
-        <div class="numbox">
+        <div class="numbox" data-toggle="modal" data-target=".rep-example-modal-lg">
+          <h1  style="color:red">114</h1>
+          <div class="boxsmall boxsmallredtext"><h5>Abnormal Reports</h5></div>
         </div>
         <div class="numbox">
+          <h1  style="color:black">71</h1>
+          <div class="boxsmall boxsmallyellowtext"><h5>Mixed Reports</h5></div>
         </div>
         <div class="numbox">
+          <h1  style="color:green;">37</h1>
+          <div class="boxsmall boxsmallgreentext"><h5>Normal Reports</h5></div>
         </div>
+      </div>
+      <div class="chartrepone"></div>
+      <div class="chartreptwo">
+        <p>AVERAGE VISIT TIMES</p>
+        <div class="insimg"></div>
+        <!--img class="insimg" src="insight1.png" /-->
+      </div>
+      <div class="chartreptwo">
+        <p>VISIT METRICS COMPLETED</p>
+        <!--img class="insimg" src="insight2.png" /-->
+        <div class="insimgtwo"></div>
       </div>
     </div>
   </div>
@@ -66,7 +79,33 @@
     <div class="modal-content patlist">
       <h4> PATIENT LIST </h4>
       <br></br>
-      <div style="overflow-y: scroll; height:35em;">
+      <div style="overflow-y: scroll; height:55em;">
+        <div class="row element" ng-repeat="patient in patients">
+          <div class="col-xs-6 col-sm-4">
+            <img id="{{patient.id}}"src="{{patient.image}}"/>
+            <h5 style="color: grey">{{patient.name}}</h5>
+          </div>
+          <div class="col-xs-6 col-sm-4" style= "color: grey;">
+            <p> <b style="color:black;">{{patient.visit}}</b> at {{patient.time}} </p>
+            <p> {{patient.age}} year old, {{patient.gender}}</p>
+            <p> <b style="color:black;">{{patient.provider}}</b> is the {{patient.ptype}} provider </p>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <p><i class="fa fa-phone"></i> {{patient.phone}}</p>
+            <p><i class="fa fa-home"></i> {{patient.address}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade rep-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content patlist">
+      <h4> ABNORMAL REPORTS </h4>
+      <br></br>
+      <div style="overflow-y: scroll; height:40em;">
         <div class="row element" ng-repeat="patient in patients">
           <div class="col-xs-6 col-sm-4">
             <img id="{{patient.id}}"src="{{patient.image}}"/>
