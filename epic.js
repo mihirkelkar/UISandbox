@@ -44,9 +44,20 @@ angular.module('epic', [])
       $scope.rov = "Pain in Left Ankle";
       $scope.color = "#8EE336";
       $scope.image = "http://www.eonline.com/eol_images/Entire_Site/20080508/300.willson.office.050808.jpg";
+    };
+    $http({method: 'GET', url: 'data/medrefill.json',
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
+            }}).success(function(data){
+          $scope.refills = data;
+          console.log($scope.refills);
+    });
+    $scope.reject = function(){
+      console.log("Medication has been rejected");
+      $scope.refills.pop();
     }
-
-
   })
   .filter('searchFor', function(){
 	// All filters must return a function. The first parameter
