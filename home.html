@@ -1,3 +1,48 @@
+<div class="navbar">
+  <!-- Home head is the bar which contains the menu button and
+IB, dasboard icons. Floats to the left in the navbar.
+  -->
+  <ul class = "homehead">
+    <li class = "dropdown menuhead">
+      <p class="dropdown-toggle" data-toggle="dropdown">Home
+      <span class="caret"></span></p>
+      <ul class="dropdown-menu">
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+        <li><a href="#">EPIC OPTION HERE</a></li>
+      </ul>
+    </li>
+    <li class="menuhead">
+      <i class="fa fa-inbox "></i>
+      <i class="fa fa-clipboard "></i>
+      <i class="fa fa-users"></i>
+    </li>
+  </ul>
+  <ul class="homeright">
+    <li class="menuheadright" ng-controller="searchCtrl">
+      <i class="fa fa-search"></i>
+      <input type="textbox" ng-model="query"/>
+      <ul class="searchresbox">
+        <li class = "smallresbox" ng-repeat = "ii in items | searchFor:query">
+          <img src="{{ii.image}}"/>
+          <p>{{ii.title}}</p>
+          <span ng-if= "ii.role == 'patient'">
+            <i class="fa fa-male"></i> <p class="patientheader">Patient</p>
+          </span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 <div class="row">
   <div class="col-md-4">
     <div class="waiting" ng-style="{'border-left-color': color}">
@@ -39,7 +84,33 @@
         </li>
       </ul>
     </div>
+    <div class="ptclback">
+      <div class="nurmsg">
+        <div class="nurmsg_image">
+            <img src="http://vignette1.wikia.nocookie.net/theoffice/images/9/9a/Jim.jpg/revision/latest?cb=20131011080102" />
+        </div>
+        <div class="msgtextdiv">
+          <p> Hi Dr. Dorian <br> Sean called about a rash on his left leg. He is going on a trip this weekend.
+          </p>
+        </div>
+      </div>
+      <div class="patientinfo">
+        <img src = "http://vignette1.wikia.nocookie.net/theoffice/images/9/9a/Jim.jpg/revision/latest?cb=20131011080102"/>
+        <h4 style="color:grey;font-weigt:bolder; text-decoration:underline">Sean Kravitz</h4>
+        <p><i class="fa fa-male"></i> Male, 33 year old</p>
+        <p><i class="fa fa-plus-square"></i> No Medications </p>
+        <p><i class="fa fa-user-md"></i> Last Visit Dx : Sinusitis</p>
+      </div>
+      <div class="msgactionbuttons">
+        <h5><i class="fa fa-reply fa-2x"></i></h5>
+        <h5>
+          <i class="fa fa-arrow-circle-left fa-2x"></i>
+          <i class="fa fa-arrow-circle-right fa-2x"></i>
+        </h5>
+      </div>
+    </div>
   </div>
+
   <div class="col-md-4">
 
   </div>

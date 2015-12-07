@@ -82,10 +82,10 @@ angular.module('epic', [])
   })
   .config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/', {
-      templateUrl : 'home.html',
-      controller : 'HomeCtrl'
-    }).when('/home', {
-      templateUrl :'login.html',
+      templateUrl : 'login.html',
       controller : ''
+    }).when('/home', {
+      templateUrl :'home.html',
+      controller : 'HomeCtrl'
     });
   }])

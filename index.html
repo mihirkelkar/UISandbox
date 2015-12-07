@@ -13,51 +13,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
   <body>
-    <div class="navbar">
-      <!-- Home head is the bar which contains the menu button and
-    IB, dasboard icons. Floats to the left in the navbar.
-      -->
-      <ul class = "homehead">
-        <li class = "dropdown menuhead">
-          <p class="dropdown-toggle" data-toggle="dropdown">Home
-          <span class="caret"></span></p>
-          <ul class="dropdown-menu">
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-            <li><a href="#">EPIC OPTION HERE</a></li>
-          </ul>
-        </li>
-        <li class="menuhead">
-          <i class="fa fa-inbox "></i>
-          <i class="fa fa-clipboard "></i>
-          <i class="fa fa-users"></i>
-        </li>
-      </ul>
-      <ul class="homeright">
-        <li class="menuheadright" ng-controller="searchCtrl">
-          <i class="fa fa-search"></i>
-          <input type="textbox" ng-model="query"/>
-          <ul class="searchresbox">
-            <li class = "smallresbox" ng-repeat = "ii in items | searchFor:query">
-              <img src="{{ii.image}}"/>
-              <p>{{ii.title}}</p>
-              <span ng-if= "ii.role == 'patient'">
-                <i class="fa fa-male"></i> <p class="patientheader">Patient</p>
-              </span>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
     <div ng-view></div>
   </body>
 </html>

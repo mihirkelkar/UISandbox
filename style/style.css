@@ -170,7 +170,7 @@ body{
 .repbox > p{
   color: #141414;
   text-align: center;
-  margin-bottom: -1em;
+  margin-bottom: 1em;
 }
 
 
@@ -267,7 +267,7 @@ body{
   position: relative;
   width: 26em;
   height: 14em;
-  margin: 2.5em auto;
+  margin: 1.5em auto;
   margin-bottom: 0em;
   background-color: white;
   border: 1px solid #efefef;
@@ -467,4 +467,119 @@ body{
   /*border: 1px solid black;*/
   width: 25em;
   height: 4em;
+}
+
+.ptclback{
+  position: relative;
+  width: 26em;
+  height: 16em;
+  margin: 1.75em auto;
+  margin-bottom: 0em;
+  background-color: white;
+  border: 1px solid #efefef;
+  border-left-style: solid;
+  border-radius: 5px;
+}
+
+.nurmsg{
+  position: relative;
+  width: 24em;
+  height: 6em;
+  margin: 0.5em auto;
+  /*border: 1px solid orange;*/
+  border-radius: 5px;
+}
+
+.nurmsg_image{
+  display: inline-block;
+  width: 6em;
+  height: 6em;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+}
+
+.msgtextdiv{
+  position: absolute;
+  left: 6.5em;
+  top: 0;
+  width: 17em;
+  height: 6em;
+  font-family: 'Varela Round', sans-serif;
+  text-align: center;
+  border: 2px solid #efefef;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  overflow-y: scroll;
+}
+
+.msgtextdiv >  h5{
+  font-family: 'Varela Round', sans-serif;
+  margin-top: -0.15em;
+}
+
+.msgtextdiv p{
+  font-family: 'Varela Round', sans-serif;
+  margin-top: -0.15em;
+  text-align: justify;
+  font-style: italic;
+}
+
+.nurmsg_image > img{
+  width: 6em;
+  height: 6em;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+}
+
+.patientinfo{
+  position: relative;
+  width: 17em;
+  height: 6em;
+  margin-top: 1em;
+  margin-left: 1em;
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.patientinfo p,i{
+  margin-top: -0.75em;
+}
+
+.patientinfo img{
+  width: 3.75em;
+  height: 3.75em;
+  border-radius: 100%;
+  border: 1px solid #efefef;
+  float:right;
+  margin-top: 1em;
+  margin-right: 1em;
+}
+
+.msgactionbuttons{
+  position: absolute;
+  top: 8em;
+  left: 17em;
+  display: inline-block;
+  height: 7em;
+  width: 8.0em;
+
+}
+
+
+.login{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background : url("../background.gif");
+  background-size: cover;
+  opacity: 0.65;
+  text-align: center;
+}
+
+.login > h1{
+  position: absolute;
+  opacity: 1;
+  font-family: 'Varela Round', sans-serif;
+  letter-spacing: 0.05em;
+  color: white;
 }
