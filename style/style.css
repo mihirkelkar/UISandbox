@@ -541,7 +541,7 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
-.patientinfo p,i{
+.patientinfo p{
   margin-top: -0.75em;
 }
 
@@ -582,4 +582,49 @@ body{
   font-family: 'Varela Round', sans-serif;
   letter-spacing: 0.05em;
   color: white;
+}
+
+.fastlinks{
+  height: 5em;
+  width: 26em;
+  margin: 3.5em auto;
+  /*border: 1px solid orange;*/
+}
+
+.fastlinks ul{
+  /*border: 1px solid orange;*/
+  list-style: none;
+  height: 100%;
+  width: 20em;
+  margin: 0 auto;
+}
+
+.fastlinks li{
+  float: left;
+  display: inline-block;
+  height: 5em;
+  width: 5em;
+  margin-left: -0.3em;
+  margin-right: 0.8em;
+  /*border: 1px solid orange;*/
+  text-align: center;
+}
+
+.chartsearch{
+  height: 3em;
+  width: 26em;
+  margin: 5em auto;
+  /*border: 1px solid orange;*/
+}
+
+.searchform{
+  outline:none;
+  height: 100%;
+  width: 80%;
+  border: 5px;
+  background: transparent;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
 }
