@@ -27,21 +27,7 @@ IB, dasboard icons. Floats to the left in the navbar.
       <i class="fa fa-users"></i>
     </li>
   </ul>
-  <ul class="homeright">
-    <li class="menuheadright" ng-controller="searchCtrl">
-      <i class="fa fa-search"></i>
-      <input type="textbox" ng-model="query"/>
-      <ul class="searchresbox">
-        <li class = "smallresbox" ng-repeat = "ii in items | searchFor:query">
-          <img src="{{ii.image}}"/>
-          <p>{{ii.title}}</p>
-          <span ng-if= "ii.role == 'patient'">
-            <i class="fa fa-male"></i> <p class="patientheader">Patient</p>
-          </span>
-        </li>
-      </ul>
-    </li>
-  </ul>
+
 </div>
 <div class="row">
   <div class="col-md-4">
@@ -112,8 +98,38 @@ IB, dasboard icons. Floats to the left in the navbar.
   </div>
 
   <div class="col-md-4">
-
+    <div class="fastlinks">
+      <ul>
+        <li>
+          <i class="fa fa-clipboard fa-3x"></i>
+          <h5 style="color:black;margin-top:-0.5em;"> My Open Charts</h5>
+        </li>
+        <li>
+          <i class="fa fa-pie-chart fa-3x"></i>
+          <h5 style="color:black;margin-top:-0.5em;">My Reports</h5>
+        </li>
+        <li>
+          <i class="fa fa-bar-chart fa-3x"></i>
+          <h5 style="color:black;margin-top:-0.5em;">Slicer Dicer</h5>
+        </li>
+      </ul>
+    </div>
+    <div class="chartsearch" ng-controller="searchCtrl">
+        <i class="fa fa-search fa-2x"></i>
+        <input placeholder="Type to search" type="textbox" class="searchform" ng-model="query"/>
+        <ul class="searchresbox">
+          <li class = "smallresbox" ng-repeat = "ii in items | searchFor:query">
+            <img src="{{ii.image}}"/>
+            <p>{{ii.title}}</p>
+            <span ng-if= "ii.role == 'patient'">
+              <i class="fa fa-male"></i> <p class="patientheader">Patient</p>
+            </span>
+          </li>
+        </ul>
+    </div>
   </div>
+
+
   <div class="col-md-4">
     <div class="insights">
       <div class="patientreps">
@@ -196,3 +212,9 @@ IB, dasboard icons. Floats to the left in the navbar.
     </div>
   </div>
 </div>
+
+<!--
+<ul class="homeright">
+
+</ul>
+-->
