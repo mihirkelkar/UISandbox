@@ -36,10 +36,11 @@ IB, dasboard icons. Floats to the left in the navbar.
       <div class="repbox">
         <h5>{{title}}</h5>
         <p>{{name}}</p>
-        <span><i class="fa fa-heartbeat fa-2x"></i></span>
-        <span style = "font-size:20;"> {{pulse}} </span>
-        <span style = "font-size:15; color: grey"> {{bloodp}} </span>
-        <p><i class="fa fa-exclamation-circle"></i>{{rov}}</p>
+        <p>{{gender}} {{age}}</p>
+        <span style="position:relative;top:-2em;"><i class="fa fa-heartbeat fa-2x"></i></span>
+        <span style = "font-size:20; position:relative;top:-1.5em;"> {{pulse}} </span>
+        <span style = "font-size:15; color: grey; position:relative; top:-1.9em;"> {{bloodp}} </span>
+        <p style="position:relative;top:-2.5em;"><i class="fa fa-exclamation-circle"></i>{{rov}}</p>
       </div>
     </div>
     <div class="sched" ng-mouseleave="hoverOut()">
@@ -118,12 +119,10 @@ IB, dasboard icons. Floats to the left in the navbar.
         <i class="fa fa-search fa-2x"></i>
         <input placeholder="Type to search" type="textbox" class="searchform" ng-model="query"/>
         <ul class="searchresbox">
-          <li class = "smallresbox" ng-repeat = "ii in items | searchFor:query">
+          <li ng-class = "{smallresbox: ii.patient, wrkflowbox: ii.workflow}" ng-repeat = "ii in items | searchFor:query">
             <img src="{{ii.image}}"/>
             <p>{{ii.title}}</p>
-            <span ng-if= "ii.role == 'patient'">
-              <i class="fa fa-male"></i> <p class="patientheader">Patient</p>
-            </span>
+            <p>{{ii.info}}</p>
           </li>
         </ul>
     </div>

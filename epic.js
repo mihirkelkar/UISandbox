@@ -17,6 +17,8 @@ angular.module('epic', [])
     $scope.bloodp = "123 / 89";
     $scope.rov = "Pain in Left Ankle";
     $scope.color = "#8EE336";
+    $scope.gender = "Male,";
+    $scope.age = "32";
     $scope.image = "http://www.eonline.com/eol_images/Entire_Site/20080508/300.willson.office.050808.jpg";
     $http({method: 'GET', url: 'data/patients.json',
             headers:{
@@ -35,6 +37,8 @@ angular.module('epic', [])
       $scope.rov = $scope.patients[index].rov;
       $scope.name = $scope.patients[index].name;
       $scope.color = $scope.patients[index].color;
+      $scope.gender = $scope.patients[index].gender;
+      $scope.age = $scope.patients[index].age;
     };
     $scope.hoverOut = function(){
       $scope.title = "Next Ready Patient";
@@ -43,6 +47,8 @@ angular.module('epic', [])
       $scope.bloodp = "123 / 89";
       $scope.rov = "Pain in Left Ankle";
       $scope.color = "#8EE336";
+      $scope.gender = "Male,";
+      $scope.age = "32";
       $scope.image = "http://www.eonline.com/eol_images/Entire_Site/20080508/300.willson.office.050808.jpg";
     };
     $http({method: 'GET', url: 'data/medrefill.json',
