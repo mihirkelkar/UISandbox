@@ -273,7 +273,7 @@ body{
 .element{
   margin: 1em auto;
   width: 90%;
-  border: 1px solid orange;
+  /*border: 1px solid orange;*/
   background-color: #f8f8f8;
   border-radius : 5px;
   padding: 0.5em;
@@ -505,6 +505,10 @@ body{
   border-radius: 5px;
 }
 
+.ptclback ul{
+  list-style-type: none;
+}
+
 .nurmsg{
   position: relative;
   width: 24em;
@@ -585,7 +589,7 @@ body{
 
 .msgactionbuttons{
   position: absolute;
-  top: 8em;
+  top: 7em;
   left: 17em;
   display: inline-block;
   height: 7em;
@@ -655,4 +659,12 @@ body{
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
+}
+
+.patprof img{
+  width : 3.5em;
+  height: 3.5em;
+  margin: 0 auto;
+  border: 2px solid;
+  border-radius: 100%;
 }

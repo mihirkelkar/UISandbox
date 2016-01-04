@@ -32,7 +32,7 @@ IB, dasboard icons. Floats to the left in the navbar.
 <div class="row">
   <div class="col-md-4">
     <div class="waiting" ng-style="{'border-left-color': color}">
-      <img src="{{image}}">
+      <img src="{{image}}" data-toggle="modal" data-target=".patprof">
       <div class="repbox">
         <h5>{{title}}</h5>
         <p>{{name}}</p>
@@ -49,7 +49,7 @@ IB, dasboard icons. Floats to the left in the navbar.
           <img ng-mouseover="hoverIn($index)" id="{{patient.id}}" src="{{patient.image}}"/>
         </li>
       </ul>
-      <i class="fa fa-external-link fa-2x" data-toggle="modal" data-target=".bs-example-modal-lg"></i>
+      <i class="fa fa-external-link fa-2x" data-toggle="modal" data-target=".patlistmodal"></i>
     </div>
     <div class="messages">
       <h4> MEDICATION REFILLS </h4>
@@ -74,25 +74,25 @@ IB, dasboard icons. Floats to the left in the navbar.
     <div class="ptclback">
       <div class="nurmsg">
         <div class="nurmsg_image">
-            <img src="http://vignette1.wikia.nocookie.net/theoffice/images/9/9a/Jim.jpg/revision/latest?cb=20131011080102" />
+            <img src="http://nursinglicensemap.com/wp-content/uploads/2011/02/iStock_000014223098Small-300x300.jpg" />
         </div>
         <div class="msgtextdiv">
-          <p> Hi Dr. Dorian <br> Sean called about a rash on his left leg. He is going on a trip this weekend.
+          <p> Hi Dr. Dorian <br> {{patmsg.msg}}
           </p>
         </div>
       </div>
       <div class="patientinfo">
-        <img src = "http://vignette1.wikia.nocookie.net/theoffice/images/9/9a/Jim.jpg/revision/latest?cb=20131011080102"/>
-        <h4 style="color:grey;font-weigt:bolder; text-decoration:underline">Sean Kravitz</h4>
-        <p><i class="fa fa-male"></i> Male, 33 year old</p>
-        <p><i class="fa fa-plus-square"></i> No Medications </p>
-        <p><i class="fa fa-user-md"></i> Last Visit Dx : Sinusitis</p>
+        <img src = "{{patmsg.image}}"/>
+        <h4 style="color:grey;font-weigt:bolder; text-decoration:underline">{{patmsg.name}}</h4>
+        <p><i class="fa fa-male"></i> {{patmsg.sexage}}</p>
+        <p><i class="fa fa-plus-square"></i>{{patmsg.medication}}</p>
+        <p><i class="fa fa-user-md"></i> Last Visit Dx : {{patmsg.dx}}</p>
       </div>
       <div class="msgactionbuttons">
-        <h5><i class="fa fa-reply fa-2x"></i></h5>
-        <h5>
-          <i class="fa fa-arrow-circle-left fa-2x"></i>
-          <i class="fa fa-arrow-circle-right fa-2x"></i>
+        <h5><i class="fa fa-reply fa-2x " data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></i></h5>
+        <h5 style="margin-top: -0.75em;">
+          <i class="fa fa-arrow-circle-left fa-2x" ng-click = "newpatmsg()"></i>
+          <i class="fa fa-arrow-circle-right fa-2x" ng-click = "newpatmsg()"></i>
         </h5>
       </div>
     </div>
@@ -133,7 +133,7 @@ IB, dasboard icons. Floats to the left in the navbar.
     <div class="insights">
       <div class="patientreps">
         <div class="numbox" data-toggle="modal" data-target=".rep-example-modal-lg">
-          <h1  style="color:red">114</h1>
+          <h1  style="color:red">14</h1>
           <div class="boxsmall boxsmallredtext"><h5>Abnormal Reports</h5></div>
         </div>
         <div class="numbox">
@@ -145,7 +145,11 @@ IB, dasboard icons. Floats to the left in the navbar.
           <div class="boxsmall boxsmallgreentext"><h5>Normal Reports</h5></div>
         </div>
       </div>
-      <div class="chartrepone"></div>
+      <div class="chartrepone">
+        <h4>Insight Central</h4>
+        <p><i class="fa fa-mobile fa-2x"></i> 63% of your patients are at risk of Diabetes
+        </p>
+      </div>
       <div class="chartreptwo">
         <p>AVERAGE VISIT TIMES</p>
         <div class="insimg"></div>
@@ -160,7 +164,7 @@ IB, dasboard icons. Floats to the left in the navbar.
   </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade bs-example-modal-lg patlistmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
     <div class="modal-content patlist">
       <h4> PATIENT LIST </h4>
@@ -211,6 +215,67 @@ IB, dasboard icons. Floats to the left in the navbar.
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient: Nurse Terry </label>
+            <label><input style="margin-left: 0.25em;" type="checkbox" value=""> Route to {{patmsg.name}}</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade patprof" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <img src="{{image}}"></img>
+        <h4 style="display:inline; margin-left:0.75em;" class="modal-title" id="gridSystemModalLabel">{{name}}</h4>
+        <h5 style="text-align:left; margin-left:4em;">{{gender}}{{age}}.  <br> Emergency Contact: Micheal Scott</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6" style="text-align:center"><b>{{rov}} (Today)</b></div>
+          <div class="col-md-6" style="text-align:center">Ready for Visit</div>
+        </div>
+        <div class="row" style="margin-top:1em;">
+          <div class="col-md-6" style="text-align:center"><b>Concussion (12/22/2015)</b></div>
+          <div class="col-md-6">
+            <ul>
+              <li>CAT Scan Ordered</li>
+              <li>Placed Under Obesrvation for 24 hours</li>
+              <li>Released from Obesrvation (12/23/15)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Jump to Encounter</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!--
 <ul class="homeright">
